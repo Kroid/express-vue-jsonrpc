@@ -1,0 +1,11 @@
+{
+  "development": {
+    "driver": "pg",
+    "user": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "database": "nodejs_demo_app_development",
+    "schema": "public"
+  },
+  "sql-file" : true
+}
