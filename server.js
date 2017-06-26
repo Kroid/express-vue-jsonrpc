@@ -5,7 +5,6 @@ const isProd = env === 'production'
 
 const fs = require('fs')
 const express = require('express')
-const bodyParser = require('body-parser');
 const { createBundleRenderer } = require('vue-server-renderer')
 
 function createRenderer() {
@@ -51,10 +50,7 @@ function createRequestHandler(cb) {
 const app = express()
 
 createRequestHandler((handler) => {
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: true }));
-
-  app.post('/api.json', require('./src-backend/controllers/http'));
+  app.use('/', require('./src-backend/app/router'))
   app.get('*', handler)
 
   app.listen(port, () => {
