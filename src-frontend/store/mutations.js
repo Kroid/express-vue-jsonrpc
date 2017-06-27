@@ -1,10 +1,8 @@
-import Vue from 'vue'
-
 export default {
-    ADD_ITEM: (state, { value }) => {
+    ADD_ITEM: (state, data ) => {
         state.items.push({
-            id: Math.random(),
-            value: value
+            id: data.id,
+            value: data.result
         })
 
     },

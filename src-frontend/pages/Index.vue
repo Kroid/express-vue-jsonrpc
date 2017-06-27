@@ -29,9 +29,11 @@
         addItem () {
             let value = this.itemValue;
             if (value) {
-                this.$store.commit('ADD_ITEM', { value });
+                this.$store.dispatch('ADD_ITEM', { value })
+                //this.$store.commit('ADD_ITEM', { value });
             }
             this.itemValue = '';
+
         },
         deleteItem (id) {
             this.$store.commit('DELETE_ITEM', id );
