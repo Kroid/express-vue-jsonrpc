@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const env = process.env.NODE_ENV || 'test'
+const config = require('../src-backend/config/database.json')[env]
+
+const shell = require('shelljs')
+
+if (!shell.which('createdb')) {
+  shell.echo('Sorry, this script requires createdb');
+  shell.exit(1);
+}
+
+shell.exec(`PGPASSWORD=${config.password} createdb -h ${config.host} -p ${config.port} -U ${config.user} ${config.database}`)
+shell.exec(`./node_modules/.bin/db-migrate down --config src-backend/config/database.json --migrations-dir src-backend/migrations --env ${env}`)
+shell.exec(`./node_modules/.bin/db-migrate up --config src-backend/config/database.json --migrations-dir src-backend/migrations --env ${env}`)

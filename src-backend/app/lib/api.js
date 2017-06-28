@@ -2,33 +2,33 @@ const validateParams = require('./validate-params');
 
 class API {
   constructor() {
-    this.operations = {}
+    this.methods = {}
   }
 
-  call(operationName, params) {
-    let operation = this.operations[operationName]
+  call(methodName, params) {
+    let method = this.methods[methodName]
 
-    if (operation.schema) {
-      let errors = validateParams(params, operation.schema);
+    if (method.schema) {
+      let errors = validateParams(params, method.schema);
       if (errors) {
         return new Promise((resolve, reject) => reject(errors))
       }
     }
 
-    return this.operations[operationName].run(params)
+    return this.methods[methodName].run(params)
   }
 
   docs() {
-    return Object.keys(this.operations).map((name) => {
+    return Object.keys(this.methods).map((name) => {
       return {
         name: name,
-        schema: this.operations[name].schema,
+        schema: this.methods[name].schema,
       }
     })
   }
 
-  registerOperation(name, operation) {
-    this.operations[name] = operation
+  registerMethod(name, method) {
+    this.methods[name] = method
   }
 }
 
