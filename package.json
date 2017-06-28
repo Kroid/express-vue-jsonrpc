@@ -15,6 +15,7 @@
     "npm": ">=5.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
@@ -22,8 +23,10 @@
     "db-migrate-pg": "^0.2.4",
     "express": "^4.15.3",
     "joi": "^10.6.0",
+    "node-sass": "^4.5.3",
     "object-path": "^0.11.4",
     "pg-promise": "^6.1.2",
+    "sass-loader": "^6.0.6",
     "vue": "^2.3.4",
     "vue-router": "^2.6.0",
     "vue-server-renderer": "^2.3.4",

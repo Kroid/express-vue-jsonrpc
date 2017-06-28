@@ -1,10 +1,12 @@
 <template>
-  <div>Index page</div>
+  <div class="container">
+    <h1 class="text-center">Главная страница</h1>
+  </div>
 </template>
 
 <script>
-console.log('index')
-export default {}
 </script>
 
-<style></style>
+<style lang="scss">
+
+</style>

@@ -8,7 +8,10 @@ export function createRouter() {
     mode: 'history',
     routes: [
       { path: '/', component: () => import('./pages/Index.vue') },
-      { path: '/example', component: () => import('./pages/Example.vue') },
+      { path: '/test', component: () => import('./pages/Test.vue') },
+      { path: '/registration', component: () => import('./pages/Registration.vue') },
+      { path: '/authorization', component: () => import('./pages/Authorization.vue') },
+
     ],
   })
 }
