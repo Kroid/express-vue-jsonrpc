@@ -5,7 +5,7 @@ let baseURL
 if (process.env.VUE_ENV === 'client') {
     baseURL = '/api'
 } else {
-    baseURL = '127.0.0.1:8080/api'
+    baseURL = 'http://127.0.0.1:8080/api'
 }
 
 export function addItem (value) {
