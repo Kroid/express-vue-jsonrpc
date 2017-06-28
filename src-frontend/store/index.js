@@ -9,6 +9,8 @@ Vue.use(Vuex)
 export function createStore () {
   return new Vuex.Store({
     state: {
+      successRegistration: false,
+      authUser: {email: '', name: ''},
       items: [{id: 1, value: 111}, {id: 2, value: 2222}],
     },
     actions,

@@ -18,10 +18,11 @@
           <div class="header-link-item">
             <router-link to="/">Помощь</router-link>
           </div>
-          <div class="header-link-item">
-            <router-link to="/registration">Регистация</router-link>
+          <div v-if="userEmail">{{ userEmail }}</div>
+          <div v-if="!userEmail" class="header-link-item">
+            <router-link to="/registration">Регистрация</router-link>
           </div>
-          <div class="header-link-item">
+          <div v-if="!userEmail" class="header-link-item">
             <router-link to="/authorization">Войти</router-link>
           </div>
         </div>
@@ -32,7 +33,12 @@
 
 <script>
 export default {
-  name: 'app-header'
+  name: 'app-header',
+  computed: {
+      userEmail () {
+          return this.$store.state.authUser.email
+      }
+  },
 }
 </script>
 
@@ -56,9 +62,9 @@ export default {
     display: flex;
     align-items: center;
     font-size: 32px;
-    color: gray;
+    color: gray !important;
     width: 150px;
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
   .header-links {

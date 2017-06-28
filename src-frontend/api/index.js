@@ -15,3 +15,17 @@ export function addItem (value) {
         params: [value]
     })
 }
+
+export function registerUser (data) {
+    return axios.post(baseURL, {
+        method: "registerUser",
+        params: {user: data}
+    })
+}
+
+export function authUser (data) {
+    return axios.post(baseURL, {
+        method: "authoriseUser",
+        params: {user: data}
+    })
+}
